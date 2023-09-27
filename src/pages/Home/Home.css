@@ -1,0 +1,35 @@
+.home__container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.home__quiztype{
+    width: 50%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 400;
+}
+.home__banner{
+    width: 55%;
+    align-self: center;
+    padding-top: 8px;
+}
+
+@media (max-width:800px) {
+    
+    .home__container{
+        flex-direction: column-reverse;
+    }
+    
+    .home__quiztype{
+        width: 100%;
+        
+    }
+    .home__banner{
+        width: 85%;
+        padding: 0;
+        padding-top: 20px;
+    }
+}
