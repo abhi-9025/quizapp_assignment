@@ -13,3 +13,8 @@ a{
   text-decoration:inherit;
   color: inherit;
 }
+
+*::-webkit-scrollbar{
+  width: 4px;
+  background-color: gray;
+}
