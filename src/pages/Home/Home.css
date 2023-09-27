@@ -16,6 +16,13 @@
     align-self: center;
     padding-top: 8px;
 }
+.home__selectQuizType{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+    justify-content: space-evenly;
+}
 
 @media (max-width:800px) {
     
