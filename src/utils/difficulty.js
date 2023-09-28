@@ -1,6 +1,6 @@
 const Difficulty = [
-  { id: 0, difficulty: "Easy" },
-  { id: 1, difficulty: "Medium" },
-  { id: 2, difficulty: "Hard" },
+  { id: 0, difficulty: "easy" },
+  { id: 1, difficulty: "medium" },
+  { id: 2, difficulty: "hard" },
 ];
 export default Difficulty;
