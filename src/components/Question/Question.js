@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Question.css";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { Button } from "@mui/material";
@@ -15,8 +15,23 @@ const Question = ({
 }) => {
   const [selected, setSelected] = useState();
   const [error, setError] = useState(false);
+  const [timer, setTimer] = useState(10);
 
-  const navigate=useNavigate()
+  useEffect(() => {
+    let timerWatch = setTimeout(() => {
+      if (timer > 0) {
+        setTimer(timer - 1);
+      } else {
+        setSelected(true);
+      }
+    }, 1000);
+
+    return () => {
+      clearTimeout(timerWatch);
+    };
+  }, [timer]);
+
+  const navigate = useNavigate();
 
   const handleSelect = (i) => {
     if (selected === i && selected === correct) {
@@ -32,34 +47,29 @@ const Question = ({
     setSelected(i);
     if (i === correct) setScore(score + 1);
     setError(false);
-  }
+  };
 
-  const handleNext=()=>{
-    if(currQuestion>=(questions.length-1) && selected)
-       {
-        navigate('/result')
-       }
-       else if(selected){
-            setCurrentQuestion(currQuestion+1)
-            setSelected()
-
-       } else{
-        setError('Please select an Option First')
-       }
-  }
-  const handleQuit=()=>{
-
-
-
-  }
-
-
+  const handleNext = () => {
+    if (currQuestion >= questions.length - 1 && selected) {
+      navigate("/result");
+    } else if (selected) {
+      setTimer(60);
+      setCurrentQuestion(currQuestion + 1);
+      setSelected();
+    } else {
+      setError("Please select an Option First");
+    }
+  };
+  const handleQuit = () => {};
 
   return (
     <div className="question__container">
       <h1>Question : {currQuestion + 1}</h1>
       <div className="question__singleQuestionContainer">
         <h2>{questions[currQuestion].question}</h2>
+        <h4 style={{ position: "relative", marginTop: 10, right: "-40%",color:'red' }}>
+          Time:{timer}'s
+        </h4>
         <div className="question__option">
           {error && <ErrorMessage>{error}</ErrorMessage>}
 
