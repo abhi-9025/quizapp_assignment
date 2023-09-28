@@ -6,6 +6,8 @@ const Quiz = ({ name, score, questions, setQuestions, setScore }) => {
   const [options, setOptions] = useState();
   const [currQuestion, setCurrentQuestion] = useState(0);
 
+
+  // shuffling options as we are receiving current and incorrect answer differently
   useEffect(() => {
     setOptions(
       questions &&

@@ -17,6 +17,8 @@ const Question = ({
   const [error, setError] = useState(false);
   const [timer, setTimer] = useState(10);
 
+
+  // A timer in seconds for a single Question once expired will return ans true answer and will have to procedd to next question
   useEffect(() => {
     let timerWatch = setTimeout(() => {
       if (timer > 0) {
@@ -33,6 +35,7 @@ const Question = ({
 
   const navigate = useNavigate();
 
+  // style based on option selected
   const handleSelect = (i) => {
     if (selected === i && selected === correct) {
       return "right";
@@ -48,6 +51,8 @@ const Question = ({
     if (i === correct) setScore(score + 1);
     setError(false);
   };
+
+  // handling when next question should appear
 
   const handleNext = () => {
     if (currQuestion >= questions.length - 1 && selected) {
