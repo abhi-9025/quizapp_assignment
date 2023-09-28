@@ -31,6 +31,10 @@ const Quiz = ({ name, score, questions, setQuestions, setScore }) => {
             <span>Difficulty: {questions[currQuestion].difficulty}</span>
             <span>Score: {score}</span>
           </div>
+          <div>
+          <label for="vol">Progress (Question {currQuestion+1} of {questions.length}):</label>
+  <input type="range" value={currQuestion} min={0} max={questions.length}/>
+          </div>
           <Question
             currQuestion={currQuestion}
             setCurrentQuestion={setCurrentQuestion}
