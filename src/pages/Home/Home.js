@@ -10,6 +10,7 @@ const Home = ({ name, setName, fetchQuestion }) => {
   const [error, setError] = useState(false);
 
   const navigate = useNavigate();
+// fetching questions based on difficulty level
   const handleSubmit = () => {
     if (!difficulty || !name) {
       setError(true);
