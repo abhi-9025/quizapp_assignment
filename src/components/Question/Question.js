@@ -15,7 +15,7 @@ const Question = ({
 }) => {
   const [selected, setSelected] = useState();
   const [error, setError] = useState(false);
-  const [timer, setTimer] = useState(10);
+  const [timer, setTimer] = useState(60);
 
 
   // A timer in seconds for a single Question once expired will return ans true answer and will have to procedd to next question
